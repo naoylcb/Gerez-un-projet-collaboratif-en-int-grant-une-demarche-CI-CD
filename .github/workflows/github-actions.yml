@@ -18,14 +18,7 @@ jobs:
       working-directory: ./front
       run: |
         npm test -- --no-watch --no-progress --browsers=ChromeHeadless --code-coverage --karma-config karma.conf.js
-    - name: Test Report
-      uses: phoenix-actions/test-reporting@v8
-      if: success() || failure()    # run this step even if previous step failed
-      with:
-        name: Angular Tests          # Name of the check run which will be created
-        path: front/karma-results.xml      # Path to test results
-        reporter: jest-junit        # Format of test results
-    - name: Archive Coverage Results
+    - name: Archive test coverage
       uses: actions/upload-artifact@v3
       if: always()
       with:
