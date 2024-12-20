@@ -42,10 +42,10 @@ jobs:
         restore-keys: maven-
     - name: Install dependencies
       working-directory: ./back
-      run: ./mvnw clean install
+      run: mvn clean install
     - name: Run tests
       working-directory: ./back
-      run: ./mvnw clean test
+      run: mvn clean test
     - name: Archive JaCoCo coverage report
       uses: actions/upload-artifact@v4
       if: always()
