@@ -55,6 +55,7 @@ jobs:
 
   front-quality:
       # needs: [front-test, back-test]
+      needs: front-test
       runs-on: ubuntu-latest
       steps:
         - uses: actions/checkout@v4
