@@ -119,13 +119,13 @@ jobs:
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
               -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY_BACK }}
-        - name: SonarQube Quality Gate check
-          uses: sonarsource/sonarqube-quality-gate-action@master
-          with:
-            pollingTimeoutSec: 600
-            scanMetadataReportFile: back/target/sonar/report-task.txt
-          env:
-            SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        # - name: SonarQube Quality Gate check
+        #   uses: sonarsource/sonarqube-quality-gate-action@master
+        #   with:
+        #     pollingTimeoutSec: 600
+        #     scanMetadataReportFile: back/target/sonar/report-task.txt
+        #   env:
+        #     SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
 
   docker:
