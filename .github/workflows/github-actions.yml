@@ -70,8 +70,8 @@ jobs:
             name: coverage-report
             path: front/coverage
         - name: SonarQube Scan
-          working-directory: ./front
           uses: SonarSource/sonarqube-scan-action@v4
+          working-directory: ./front
           env:
             GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
             SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
