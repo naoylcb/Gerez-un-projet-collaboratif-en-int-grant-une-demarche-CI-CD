@@ -90,7 +90,7 @@ jobs:
               -Dsonar.tests=front/src
               -Dsonar.test.inclusions=**/*.spec.ts
         - name: SonarQube Quality Gate check
-          uses: sonarsource/sonarqube-quality-gate-action@v1
+          uses: sonarsource/sonarqube-quality-gate-action@master
           with:
             pollingTimeoutSec: 600
           env:
@@ -119,7 +119,7 @@ jobs:
               -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY_BACK }}
               -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
         - name: SonarQube Quality Gate check
-          uses: sonarsource/sonarqube-quality-gate-action@v1
+          uses: sonarsource/sonarqube-quality-gate-action@master
           with:
             pollingTimeoutSec: 600
           env:
