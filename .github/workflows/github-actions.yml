@@ -81,6 +81,7 @@ jobs:
               -Dsonar.sources=front/src/app
               -Dsonar.tests=front/src
               -Dsonar.test.inclusions=**/*.spec.ts
+              -Dsonar.qualitygate.wait=true
 
   back-quality:
       needs: front-quality
@@ -117,6 +118,7 @@ jobs:
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
               -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+              -Dsonar.qualitygate.wait=true
 
 
   docker:
