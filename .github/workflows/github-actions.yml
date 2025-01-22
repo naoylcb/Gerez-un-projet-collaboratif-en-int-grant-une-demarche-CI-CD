@@ -144,10 +144,10 @@ jobs:
           with:
             context: ./front
             push: true
-            tags: yoanb/bobapp-front:${{ github.sha::7 }}
+            tags: yoanb/bobapp-front:${{ github.sha }}
         - name: Build and push back
           uses: docker/build-push-action@v6
           with:
             context: ./back
             push: true
-            tags: yoanb/bobapp-back:${{ github.sha::7 }}
+            tags: yoanb/bobapp-back:${{ github.sha }}
