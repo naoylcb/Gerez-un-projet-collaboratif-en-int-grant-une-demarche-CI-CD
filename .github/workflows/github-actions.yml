@@ -79,8 +79,8 @@ jobs:
               -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
               -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
               -Dsonar.javascript.lcov.reportPaths=front/coverage/bobapp/lcov.info
-              -Dsonar.sources=src
-              -Dsonar.tests=src
+              -Dsonar.sources=front/src
+              -Dsonar.tests=front/src
 
   # back-quality:
   #     needs: back-test
