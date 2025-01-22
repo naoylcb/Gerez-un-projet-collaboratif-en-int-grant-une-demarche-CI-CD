@@ -103,11 +103,12 @@ jobs:
             java-version: '11'
             distribution: 'temurin'
             cache: 'maven'
-        - name: Download JaCoCo report artifact
-          uses: actions/download-artifact@v4
+        - name: Cache SonarQube packages
+          uses: actions/cache@v4
           with:
-            name: jacoco-report
-            path: back/target/site/jacoco/
+            path: ~/.sonar/cache
+            key: ${{ runner.os }}-sonar
+            restore-keys: ${{ runner.os }}-sonar
         - name: SonarQube Scan
           working-directory: ./back
           env:
@@ -117,8 +118,7 @@ jobs:
               org.sonarsource.scanner.maven:sonar-maven-plugin:sonar \
               -Dsonar.host.url=https://sonarcloud.io \
               -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }} \
-              -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY_BACK }} \
-              -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+              -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY_BACK }}
         - name: SonarQube Quality Gate check
           uses: sonarsource/sonarqube-quality-gate-action@master
           with:
